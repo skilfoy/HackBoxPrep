@@ -37,9 +37,9 @@ apt install python3-sqlalchemy python3-pyqt5 wkhtmltopdf
 apt-get install ldap-utils rwho rsh-client x11-apps finger
 cd /usr/share
 git clone https://github.com/secforce/sparta.git
-cd sparta
+mv sparta/sparta /usr/bin
+cd /usr/bin
 chmod +x sparta
-mv sparta /usr/bin
 cd ~/Documents/Tools
 
 echo '[$$] Installing ***...'
