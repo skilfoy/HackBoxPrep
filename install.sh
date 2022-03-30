@@ -8,7 +8,28 @@ fi
 mkdir ~/Documents/Tools
 cd ~/Documents/Tools
 
+# Kali-everything
+echo '## Installing All Kali Tools'
+sudo apt-get install -y kali-tools-everything
+
+echo '## Cleaning up'
+sudo apt-get autoremove
+sudo apt-get install -y libwacom-common
+
+echo '## Upgrade & Update'
+sudo apt-get install -y upgrade
+sudo apt-get install -y update
+sudo apt-get install -y upgrade
+sudo apt-get autoremove
+
+# Toolset
+echo '## Building Toolset'
+
+mkdir ~/Documents/Tools
+cd ~/Documents/Tools
+
 # Git Clones
+
 echo '[$$] Installing Sn1per...'
 git clone https://github.com/1N3/Sn1per
 cd Sn1per
@@ -43,3 +64,4 @@ chmod +x sparta
 cd ~/Documents/Tools
 
 echo '[$$] Installing ***...'
+
