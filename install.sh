@@ -73,46 +73,27 @@ echo '[$$] Installing ***...'
 
 
 
-echo '[$$] API Key Installation (for subfinder, wpscan)'
-echo 'Enter Binaryedge API Key:'
-read Binaryedge_API_Key
-echo 'Enter C99 API Key:'
-read C99_API_Key
-echo 'Enter Certspotter API Key:'
-read Certspotter_API_Key
-echo 'Enter Chinaz API Key:'
-read Chinaz_API_Key
-echo 'Enter Censys API Key'
-read Censys_API_Key
-echo 'Enter Chaos API Key:'
-read Chaos_API_Key
-echo 'Enter DnsDB API Key:'
-read DnsDB_API_Key
-echo 'Enter Fofa API Key:'
-read Fofa_API_Key
-echo 'Enter Github API Key:'
-read Github_API_Key
-echo 'Enter Intelx API Key:'
-read Intelx_API_Key
-echo 'Enter Passivetotal API Key:'
-read Passivetotal_API_Key
-echo 'Enter Robtex API Key:'
-read Robtex API Key
-echo 'Enter SecurityTrails API Key:'
-read SecurityTrails_API_Key
-echo 'Enter Shodan API Key'
-read Shodan_API_Key
-echo 'Enter Spyse API Key'
-read Spyse_API_Key
-echo 'Enter Threatbook API Key:'
-read Threatbook_API_Key
-echo 'Enter Virustotal API Key:'
-read Virustotal_API_Keecho 'Enter Zoomeye API Key:'
-read Zoomeye_API_Key
-
-echo 'Enter WPScan API Key:'
-read WPScan_API_Key
-wpscan --wpscan-api-token $WPSCAN_API_Key
+echo '[$$] API Key Installation (for haxunit, subfinder, wpscan functionality)'
+read -sp 'Enter Binaryedge API Key: ' Binaryedge_API_Key
+read -sp 'Enter C99 API Key: ' C99_API_Key
+read -sp 'Enter Certspotter API Key: ' Certspotter_API_Key
+read -sp 'Enter Chinaz API Key: ' Chinaz_API_Key
+read -sp 'Enter Censys API Key: ' Censys_API_Key
+read -sp 'Enter Chaos API Key: ' Chaos_API_Key
+read -sp 'Enter DnsDB API Key: ' DnsDB_API_Key
+read -sp 'Enter Fofa API Key: ' Fofa_API_Key
+read -sp 'Enter Github API Key: ' Github_API_Key
+read -sp 'Enter Intelx API Key: ' Intelx_API_Key
+read -sp 'Enter Passivetotal API Key: ' Passivetotal_API_Key
+read -sp 'Enter Robtex API Key: ' Robtex API Key
+read -sp 'Enter SecurityTrails API Key: ' SecurityTrails_API_Key
+read -sp 'Enter Shodan API Key ' Shodan_API_Key
+read -sp 'Enter Spyse API Key ' Spyse_API_Key
+read -sp 'Enter Threatbook API Key: ' Threatbook_API_Key
+read -sp 'Enter Virustotal API Key: ' Virustotal_API_Key
+read -sp 'Enter Zoomeye API Key: ' Zoomeye_API_Key
+read -sp 'Enter WPScan API Key: ' WPScan_API_Key
+echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
 
 
 
