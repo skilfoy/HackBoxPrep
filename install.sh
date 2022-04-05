@@ -13,14 +13,14 @@ echo '## Installing All Kali Tools'
 sudo apt-get install -y kali-tools-everything
 
 echo '## Cleaning up'
-sudo apt-get autoremove
-sudo apt-get install -y libwacom-common
+apt-get autoremove
+apt-get install -y libwacom-common
 
 echo '## Upgrade & Update'
-sudo apt-get install -y upgrade
-sudo apt-get install -y update
-sudo apt-get install -y upgrade
-sudo apt-get autoremove
+apt-get install -y upgrade
+apt-get install -y update
+apt-get install -y upgrade
+apt-get autoremove
 
 # Toolset
 echo '## Building Toolset'
