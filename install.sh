@@ -69,13 +69,11 @@ cd haxunit
 python3 -m pip install -r requirements.txt
 python3 main.py --install
 
-
-
 echo '[$$] Installing ***...'
 
 
 
-echo '[$$] API Key Installation (for subfinder)'
+echo '[$$] API Key Installation (for subfinder, wpscan)'
 echo 'Enter Binaryedge API Key:'
 read Binaryedge_API_Key
 echo 'Enter C99 API Key:'
@@ -109,9 +107,12 @@ read Spyse_API_Key
 echo 'Enter Threatbook API Key:'
 read Threatbook_API_Key
 echo 'Enter Virustotal API Key:'
-read Virustotal_API_Key
-echo 'Enter Zoomeye API Key:'
+read Virustotal_API_Keecho 'Enter Zoomeye API Key:'
 read Zoomeye_API_Key
+
+echo 'Enter WPScan API Key:'
+read WPScan_API_Key
+wpscan --wpscan-api-token $WPSCAN_API_Key
 
 
 
