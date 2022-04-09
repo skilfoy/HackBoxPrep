@@ -9,21 +9,21 @@ mkdir ~/Documents/Tools
 cd ~/Documents/Tools
 
 # Kali-everything
-echo '## Installing All Kali Tools'
+echo '## Installing All Kali Tools...'
 sudo apt-get install -y kali-tools-everything
 
-echo '## Cleaning up'
+echo '## Cleaning up...'
 apt-get autoremove
 apt-get install -y libwacom-common
 
-echo '## Upgrade & Update'
+echo '## Upgrade & Update...'
 apt-get install -y upgrade
 apt-get install -y update
 apt-get install -y upgrade
 apt-get autoremove
 
 # Toolset
-echo '## Building Toolset'
+echo '## Building Toolset...'
 
 mkdir ~/Documents/Tools
 
@@ -35,8 +35,11 @@ xdg-open https://www.rapid7.com/try/nexpose
 
 # apt installs
 
-echo '[$$] Installing Certspotter'
+echo '[$$] Installing Certspotter...'
 apt install -y certspotter
+
+echo '[$$] Installing Konsole...'
+apt-get install -y konsole
 
 echo '[$$] Installing Docker Engine...' 
 apt-get install -y \
@@ -112,13 +115,26 @@ cd ~/Documents/Tools
 git clone https://github.com/owtf/owtf
 cd owtf
 python3 setup.py develop
-make compose
-owtf
-echo '[---->] open `localhost:8009` in the web browser for the OWTF web interface or `owtf --help` for all available commands.'
+xterm -e 'make compose'
+xdg-open http://localhost:8009
 
 echo '[$$] Installing LinEnum...'
 cd ~/Documents/Tools
 git clone https://github.com/rebootuser/LinEnum.git
+
+echo '[$$] Installing phpsploit...'
+cd ~/Documents/Tools
+git clone https://github.com/nil0x42/phpsploit
+cd phpsploit/
+pip3 install -r requirements.txt
+
+echo '[$$] Installing Nettacker...'
+cd ~/Documents/Tools
+git clone https://github.com/OWASP/Nettacker.git
+cd Nettacker
+pip3 -install -r requirements
+xterm -e 'python3 nettacker.py --start-api --api-port 5003' &
+xdg-open https://nettacker-api.z3r0d4y.com:5003
 
 echo '[$$] Installing ***...'
 
