@@ -136,6 +136,18 @@ pip3 -install -r requirements
 xterm -e 'python3 nettacker.py --start-api --api-port 5003' &
 xdg-open https://nettacker-api.z3r0d4y.com:5003
 
+echo '[$$] Installing Boon...'
+cd ~/Documents/Tools
+git clone https://github.com/Nefcore/boon.git
+cd boon
+python3 setup.py install
+
+echo '[$$] Installing CRLFsuite...'
+cd ~/Documents/Tools
+git clone https://github.com/Nefcore/CRLFsuite.git
+cd CRLFsuite
+sudo python3 setup.py install
+
 echo '[$$] Installing ***...'
 
 
@@ -152,7 +164,7 @@ read -sp 'Enter Fofa API Key: ' Fofa_API_Key
 read -sp 'Enter Github API Key: ' Github_API_Key
 read -sp 'Enter Intelx API Key: ' Intelx_API_Key
 read -sp 'Enter Passivetotal API Key: ' Passivetotal_API_Key
-read -sp 'Enter Robtex API Key: ' Robtex API Key
+read -sp 'Enter Robtex API Key: ' Robtex_API_Key
 read -sp 'Enter SecurityTrails API Key: ' SecurityTrails_API_Key
 read -sp 'Enter Shodan API Key ' Shodan_API_Key
 read -sp 'Enter Spyse API Key ' Spyse_API_Key
@@ -160,6 +172,44 @@ read -sp 'Enter Threatbook API Key: ' Threatbook_API_Key
 read -sp 'Enter Virustotal API Key: ' Virustotal_API_Key
 read -sp 'Enter Zoomeye API Key: ' Zoomeye_API_Key
 read -sp 'Enter WPScan API Key: ' WPScan_API_Key
+echo 'binaryedge: \n
+\t- $Binaryedge_API_Key \n
+c99: \n
+\t- $C99_API_Key \n
+Certspotter: \n
+\t- $Certspotter_API_Key \n
+Chinaz: \n
+\t- $Chinaz_API_Key \n
+Censys: \n
+\t- $Censys_API_Key \n
+Chaos: \n
+\t- $Chaos_API_Key \n
+DnsDB: \n
+\t- $DnsDB_API_Key \n
+Fofa: \n
+\t- $Fofa_API_Key \n
+Github: \n
+\t- $Github_API_Key \n
+Intelx: \n
+\t- $Intelx_API_Key \n
+Passivetotal: \n
+\t- $Passivetotal_API_Key \n
+Robtex: \n
+\t- $Robtex_API_Key \n
+SecurityTrails: \n
+\t- $SecurityTrails_API_Key \n
+Shodan: \n
+\t- $Shodan_API_Key \n
+Spyse: \n
+\t- $Spyse_API_Key \n
+Threatbook: \n
+\t- $Threatbook_API_Key \n
+Virustotal: \n
+\t- $Virustotal_API_Key \n
+Zoomeye: \n
+\t- $Zoomeye_API_Key \n
+' > $HOME/.config/subfinder/provider-config.yaml
+
 echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
 
 
