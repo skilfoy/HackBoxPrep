@@ -172,42 +172,42 @@ read -sp 'Enter Threatbook API Key: ' Threatbook_API_Key
 read -sp 'Enter Virustotal API Key: ' Virustotal_API_Key
 read -sp 'Enter Zoomeye API Key: ' Zoomeye_API_Key
 read -sp 'Enter WPScan API Key: ' WPScan_API_Key
-echo 'binaryedge: \n
-\t- $Binaryedge_API_Key \n
-c99: \n
-\t- $C99_API_Key \n
-Certspotter: \n
-\t- $Certspotter_API_Key \n
-Chinaz: \n
-\t- $Chinaz_API_Key \n
-Censys: \n
-\t- $Censys_API_Key \n
-Chaos: \n
-\t- $Chaos_API_Key \n
-DnsDB: \n
-\t- $DnsDB_API_Key \n
-Fofa: \n
-\t- $Fofa_API_Key \n
-Github: \n
-\t- $Github_API_Key \n
-Intelx: \n
-\t- $Intelx_API_Key \n
-Passivetotal: \n
-\t- $Passivetotal_API_Key \n
-Robtex: \n
-\t- $Robtex_API_Key \n
-SecurityTrails: \n
-\t- $SecurityTrails_API_Key \n
-Shodan: \n
-\t- $Shodan_API_Key \n
-Spyse: \n
-\t- $Spyse_API_Key \n
-Threatbook: \n
-\t- $Threatbook_API_Key \n
-Virustotal: \n
-\t- $Virustotal_API_Key \n
-Zoomeye: \n
-\t- $Zoomeye_API_Key \n
+echo 'binaryedge:
+\t- $Binaryedge_API_Key
+c99:
+\t- $C99_API_Key
+Certspotter:
+\t- $Certspotter_API_Key
+Chinaz:
+\t- $Chinaz_API_Key
+Censys:
+\t- $Censys_API_Key
+Chaos:
+\t- $Chaos_API_Key
+DnsDB:
+\t- $DnsDB_API_Key
+Fofa:
+\t- $Fofa_API_Key
+Github:
+\t- $Github_API_Key
+Intelx:
+\t- $Intelx_API_Key
+Passivetotal:
+\t- $Passivetotal_API_Key
+Robtex:
+\t- $Robtex_API_Key
+SecurityTrails:
+\t- $SecurityTrails_API_Key
+Shodan:
+\t- $Shodan_API_Key
+Spyse:
+\t- $Spyse_API_Key
+Threatbook:
+\t- $Threatbook_API_Key
+Virustotal:
+\t- $Virustotal_API_Key
+Zoomeye:
+\t- $Zoomeye_API_Key
 ' > $HOME/.config/subfinder/provider-config.yaml
 
 echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
