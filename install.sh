@@ -148,6 +148,18 @@ git clone https://github.com/Nefcore/CRLFsuite.git
 cd CRLFsuite
 sudo python3 setup.py install
 
+echo '[$$] Installing RustScan...'
+cd ~/Documents/Tools
+RS_LOCATION=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/latest \
+| grep "tag_name" \
+| awk '{print "https://github.com/RustScan/RustScan/releases/download/" substr($2, 2, length($2)-3) "_amd64.deb}') \
+; curl -L -o RustScan.deb $RS_LOCATION
+dpkg -i RustScan.deb
+
+echo '[$$] Installing ...'
+cd ~/Documents/Tools
+
+
 echo '[$$] Installing ***...'
 
 
@@ -172,42 +184,42 @@ read -sp 'Enter Threatbook API Key: ' Threatbook_API_Key
 read -sp 'Enter Virustotal API Key: ' Virustotal_API_Key
 read -sp 'Enter Zoomeye API Key: ' Zoomeye_API_Key
 read -sp 'Enter WPScan API Key: ' WPScan_API_Key
-echo 'binaryedge:
-\t- $Binaryedge_API_Key
-c99:
-\t- $C99_API_Key
-Certspotter:
-\t- $Certspotter_API_Key
-Chinaz:
-\t- $Chinaz_API_Key
-Censys:
-\t- $Censys_API_Key
-Chaos:
-\t- $Chaos_API_Key
-DnsDB:
-\t- $DnsDB_API_Key
-Fofa:
-\t- $Fofa_API_Key
-Github:
-\t- $Github_API_Key
-Intelx:
-\t- $Intelx_API_Key
-Passivetotal:
-\t- $Passivetotal_API_Key
-Robtex:
-\t- $Robtex_API_Key
-SecurityTrails:
-\t- $SecurityTrails_API_Key
-Shodan:
-\t- $Shodan_API_Key
-Spyse:
-\t- $Spyse_API_Key
-Threatbook:
-\t- $Threatbook_API_Key
-Virustotal:
-\t- $Virustotal_API_Key
-Zoomeye:
-\t- $Zoomeye_API_Key
+echo 'binaryedge: \
+\t- $Binaryedge_API_Key \
+c99: \
+\t- $C99_API_Key \
+Certspotter: \
+\t- $Certspotter_API_Key \
+Chinaz: \
+\t- $Chinaz_API_Key \
+Censys: \
+\t- $Censys_API_Key \
+Chaos: \
+\t- $Chaos_API_Key \
+DnsDB: \
+\t- $DnsDB_API_Key \
+Fofa: \
+\t- $Fofa_API_Key \
+Github: \
+\t- $Github_API_Key \
+Intelx: \
+\t- $Intelx_API_Key \
+Passivetotal: \
+\t- $Passivetotal_API_Key \
+Robtex: \
+\t- $Robtex_API_Key \
+SecurityTrails: \
+\t- $SecurityTrails_API_Key \
+Shodan: \
+\t- $Shodan_API_Key \
+Spyse: \
+\t- $Spyse_API_Key \
+Threatbook: \
+\t- $Threatbook_API_Key \
+Virustotal: \
+\t- $Virustotal_API_Key \
+Zoomeye: \
+\t- $Zoomeye_API_Key \
 ' > $HOME/.config/subfinder/provider-config.yaml
 
 echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
