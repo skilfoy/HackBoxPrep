@@ -164,9 +164,10 @@ cd Katana
 pip3 install -r requirements.txt
 alias kds='python3 ~/Documents/Tools/Katana/kds.py'
 
+echo '[$$] Installing Ciphey...'
+python3 -m pip install ciphey --upgrade
 
-
-echo '[$$] Installing ...'
+echo '[$$] Installing ***...'
 cd ~/Documents/Tools
 
 
@@ -178,7 +179,7 @@ echo '[$$] Installing ***...'
 echo '[$$] API Key Installation (for haxunit, subfinder, wpscan functionality)'
 read -sp 'Enter Binaryedge API Key: ' Binaryedge_API_Key
 read -sp 'Enter C99 API Key: ' C99_API_Key
-read -sp 'Enter Certspotter API Key: ' Certspotter_API_Key
+read -sp 'Enter otter (SSLmate) API Key: ' Certspotter_API_Key
 read -sp 'Enter Chinaz API Key: ' Chinaz_API_Key
 read -sp 'Enter Censys API Key: ' Censys_API_Key
 read -sp 'Enter Chaos API Key: ' Chaos_API_Key
@@ -232,6 +233,9 @@ Virustotal: \
 Zoomeye: \
 \t- $Zoomeye_API_Key \
 ' > $HOME/.config/subfinder/provider-config.yaml
+
+echo 'api_key $Certspotter_API_Key' > /etc/sslmate.conf
+
 
 echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
 
