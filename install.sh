@@ -127,6 +127,7 @@ cd ~/Documents/Tools
 git clone https://github.com/nil0x42/phpsploit
 cd phpsploit/
 pip3 install -r requirements.txt
+alias phpsploit='~/Documents/Tools/phpsploit/phpsploit'
 
 echo '[$$] Installing Nettacker...'
 cd ~/Documents/Tools
@@ -156,8 +157,18 @@ RS_LOCATION=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/la
 ; curl -L -o RustScan.deb $RS_LOCATION
 dpkg -i RustScan.deb
 
+echo '[$$] Installing Katana...'
+cd ~/Documents/Tools
+git clone https://github.com/TebbaaX/Katana.git
+cd Katana
+pip3 install -r requirements.txt
+alias kds='python3 ~/Documents/Tools/Katana/kds.py'
+
+
+
 echo '[$$] Installing ...'
 cd ~/Documents/Tools
+
 
 
 echo '[$$] Installing ***...'
