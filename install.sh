@@ -10,7 +10,7 @@ cd ~/Documents/Tools
 
 # Kali-everything
 echo '## Installing All Kali Tools...'
-sudo apt-get install -y kali-tools-everything
+apt-get install -y kali-tools-everything
 
 echo '## Cleaning up...'
 apt-get autoremove
