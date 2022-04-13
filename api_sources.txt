@@ -1,7 +1,9 @@
-Free with paid options:
+# Free with paid options:
 https://app.binaryedge.io/account/api?tab=tokens
 https://sslmate.com/account/api_keys
 https://account.shodan.io/
+https://www.virustotal.com/gui/
 
-Paid-only:
+
+# Paid-only:
 https://api.c99.nl/api_overview
