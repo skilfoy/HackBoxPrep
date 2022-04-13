@@ -1,7 +1,7 @@
 Free with paid options:
 https://app.binaryedge.io/account/api?tab=tokens
 https://sslmate.com/account/api_keys
-
+https://account.shodan.io/
 
 Paid-only:
 https://api.c99.nl/api_overview
