@@ -3,7 +3,10 @@ https://app.binaryedge.io/account/api?tab=tokens
 https://sslmate.com/account/api_keys
 https://account.shodan.io/
 https://www.virustotal.com/gui/
-
+https://search.censys.io/account/api
+https://securitytrails.com/app/account/credentials
+https://www.seebug.org/accounts/detail
+https://www.zoomeye.org/profile
 
 # Paid-only:
 https://api.c99.nl/api_overview
