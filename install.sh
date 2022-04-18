@@ -180,19 +180,18 @@ echo '[$$] API Key Installation (for haxunit, subfinder, wpscan functionality)'
 read -sp 'Enter Binaryedge API Key: ' Binaryedge_API_Key
 read -sp 'Enter C99 API Key: ' C99_API_Key
 read -sp 'Enter otter (SSLmate) API Key: ' Certspotter_API_Key
-read -sp 'Enter Chinaz API Key: ' Chinaz_API_Key
-read -sp 'Enter Censys API Key: ' Censys_API_Key
+read -sp 'Enter Censys API ID: ' Censys_API_ID
+read -sp 'Enter Censys API Secret: ' Censys_API_Secret
 read -sp 'Enter Chaos API Key: ' Chaos_API_Key
 read -sp 'Enter DnsDB API Key: ' DnsDB_API_Key
 read -sp 'Enter Fofa API Key: ' Fofa_API_Key
 read -sp 'Enter Github API Key: ' Github_API_Key
 read -sp 'Enter Intelx API Key: ' Intelx_API_Key
 read -sp 'Enter Passivetotal API Key: ' Passivetotal_API_Key
-read -sp 'Enter Robtex API Key: ' Robtex_API_Key
 read -sp 'Enter SecurityTrails API Key: ' SecurityTrails_API_Key
 read -sp 'Enter Shodan API Key ' Shodan_API_Key
 read -sp 'Enter Spyse API Key ' Spyse_API_Key
-read -sp 'Enter Threatbook API Key: ' Threatbook_API_Key
+read -sp 'Enter Seebug API Key ' Seebug_API_Key
 read -sp 'Enter Virustotal API Key: ' Virustotal_API_Key
 read -sp 'Enter Zoomeye API Key: ' Zoomeye_API_Key
 read -sp 'Enter WPScan API Key: ' WPScan_API_Key
@@ -202,10 +201,9 @@ c99: \
 \t- $C99_API_Key \
 Certspotter: \
 \t- $Certspotter_API_Key \
-Chinaz: \
-\t- $Chinaz_API_Key \
 Censys: \
-\t- $Censys_API_Key \
+\t- $Censys_API_ID \
+\t- $Censys_API_Secret \
 Chaos: \
 \t- $Chaos_API_Key \
 DnsDB: \
@@ -218,16 +216,14 @@ Intelx: \
 \t- $Intelx_API_Key \
 Passivetotal: \
 \t- $Passivetotal_API_Key \
-Robtex: \
-\t- $Robtex_API_Key \
 SecurityTrails: \
 \t- $SecurityTrails_API_Key \
+Seebug: \
+\t- $Seebug_API_Key \
 Shodan: \
 \t- $Shodan_API_Key \
 Spyse: \
 \t- $Spyse_API_Key \
-Threatbook: \
-\t- $Threatbook_API_Key \
 Virustotal: \
 \t- $Virustotal_API_Key \
 Zoomeye: \
