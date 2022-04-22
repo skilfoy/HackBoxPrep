@@ -167,10 +167,14 @@ alias kds='python3 ~/Documents/Tools/Katana/kds.py'
 echo '[$$] Installing Ciphey...'
 python3 -m pip install ciphey --upgrade
 
+echo '[$$] Installing PwnCat-CS...'
+cd ~/Documents/Tools
+pip install pwncat-cs
+
+
+
 echo '[$$] Installing ***...'
 cd ~/Documents/Tools
-
-
 
 echo '[$$] Installing ***...'
 
