@@ -253,8 +253,24 @@ gunzip chisel_1.7.7_windows_386.gz
 
 
 
-echo '[$$] Installing ***...'
+echo '[$$] Getting Shocker - Docker Escape ***...'
 cd ~/Documents/Tools
+mkdir shocker-docker-escape
+cd shocker-docker-escape
+curl 'stealth.openwall.net/xSports/shocker.c' -o shocker.c
+echo 'shocker: docker PoC VMM-container breakout \
+\
+first Modify the file, then we compile it in our attack kali machine: \
+\
+// get a FS reference from something mounted in from outside \
+if ((fd1 = open("/etc/hostname", O_RDONLY)) < 0) \
+    die("[-] open"); \
+\
+if (find_handle(fd1, "/root/root.txt", &root_h, &h) <= 0) \
+    die("[-] Cannot find valid handle!"); \
+Dynamic compilation \
+gcc shocker.c -o shocker \
+' > usage.txt
 
 echo '[$$] Installing ***...'
 
