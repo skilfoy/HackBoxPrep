@@ -187,6 +187,61 @@ chmod +x pspy32
 curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32s -o pspy32s
 chmod +x pspy32s
 
+echo '[$$] Installing Chisel...'
+curl https://i.jpillora.com/chisel! | bash
+
+echo '[$$] Getting Chisel Toolkit...'
+cd ~/Documents/Tools
+mkdir Chisel
+cd Chisel
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_darwin_amd64.gz -o chisel_1.7.7_darwin_amd64.gz
+gunzip chisel_1.7.7_darwin_amd64.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_darwin_arm64.gz -o chisel_1.7.7_darwin_arm64.gz
+gunzip chisel_1.7.7_darwin_amd64.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_386.gz -o chisel_1.7.7_linux_386.gz
+gunzip chisel_1.7.7_linux_386.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_amd64.gz -o chisel_1.7.7_linux_amd64.gz
+gunzip chisel_1.7.7_linux_amd64.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_arm64.gz -o chisel_1.7.7_linux_arm64.gz
+gunzip chisel_1.7.7_linux_arm64.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_armv6.gz -o chisel_1.7.7_linux_armv6.gz
+gunzip chisel_1.7.7_linux_armv6.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_armv7.gz -o chisel_1.7.7_linux_armv7.gz
+gunzip chisel_1.7.7_linux_armv7.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64le_softfloat.gz -o chisel_1.7.7_linux_mips64le_softfloat.gz
+gunzip chisel_1.7.7_linux_mips64le_softfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64le_hardfloat.gz -o chisel_1.7.7_linux_mips64le_hardfloat.gz
+gunzip chisel_1.7.7_linux_mips64le_hardfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64_hardfloat.gz -o chisel_1.7.7_linux_mips64_hardfloat.gz
+gunzip chisel_1.7.7_linux_mips64_hardfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64_softfloat.gz -o chisel_1.7.7_linux_mips64_softfloat.gz
+gunzip chisel_1.7.7_linux_mips64_softfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mipsle_hardfloat.gz -o chisel_1.7.7_linux_mipsle_hardfloat.gz
+gunzip chisel_1.7.7_linux_mipsle_hardfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mipsle_softfloat.gz -o chisel_1.7.7_linux_mipsle_softfloat.gz
+gunzip chisel_1.7.7_linux_mipsle_softfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips_hardfloat.gz -o chisel_1.7.7_linux_mips_hardfloat.gz
+gunzip chisel_1.7.7_linux_mips_hardfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips_softfloat.gz -o chisel_1.7.7_linux_mips_softfloat.gz
+gunzip chisel_1.7.7_linux_mips_softfloat.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_ppc64.gz -o chisel_1.7.7_linux_ppc64.gz
+gunzip chisel_1.7.7_linux_ppc64.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_ppc64le.gz -o chisel_1.7.7_linux_ppc64le.gz
+gunzip chisel_1.7.7_linux_ppc64le.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_s390x.gz -o chisel_1.7.7_linux_s390x.gz
+gunzip chisel_1.7.7_linux_s390x.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_amd64.gz -o chisel_1.7.7_windows_amd64.gz
+gunzip chisel_1.7.7_windows_amd64.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_arm64.gz -o chisel_1.7.7_windows_arm64.gz
+gunzip chisel_1.7.7_windows_arm64.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_armv6.gz -o chisel_1.7.7_windows_armv6.gz
+gunzip chisel_1.7.7_windows_armv6.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_armv7.gz -o chisel_1.7.7_windows_armv7.gz
+gunzip chisel_1.7.7_windows_armv7.gz
+curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_386.gz -o chisel_1.7.7_windows_386.gz
+gunzip chisel_1.7.7_windows_386.gz
+
+
 
 
 echo '[$$] Installing ***...'
