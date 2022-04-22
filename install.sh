@@ -258,18 +258,18 @@ cd ~/Documents/Tools
 mkdir shocker-docker-escape
 cd shocker-docker-escape
 curl 'stealth.openwall.net/xSports/shocker.c' -o shocker.c
-echo 'shocker: docker PoC VMM-container breakout \
-\
-first Modify the file, then we compile it in our attack kali machine: \
-\
-// get a FS reference from something mounted in from outside \
-if ((fd1 = open("/etc/hostname", O_RDONLY)) < 0) \
-    die("[-] open"); \
-\
-if (find_handle(fd1, "/root/root.txt", &root_h, &h) <= 0) \
-    die("[-] Cannot find valid handle!"); \
-Dynamic compilation \
-gcc shocker.c -o shocker \
+echo 'shocker: docker PoC VMM-container breakout
+
+first Modify the file, then we compile it in our attack kali machine:
+
+// get a FS reference from something mounted in from outside
+if ((fd1 = open("/etc/hostname", O_RDONLY)) < 0)
+    die("[-] open");
+
+if (find_handle(fd1, "/root/root.txt", &root_h, &h) <= 0)
+    die("[-] Cannot find valid handle!");
+Dynamic compilation
+gcc shocker.c -o shocker
 ' > usage.txt
 
 echo '[$$] Installing ***...'
@@ -295,39 +295,39 @@ read -sp 'Enter Seebug API Key ' Seebug_API_Key
 read -sp 'Enter Virustotal API Key: ' Virustotal_API_Key
 read -sp 'Enter Zoomeye API Key: ' Zoomeye_API_Key
 read -sp 'Enter WPScan API Key: ' WPScan_API_Key
-echo 'binaryedge: \
-\t- $Binaryedge_API_Key \
-c99: \
-\t- $C99_API_Key \
-Certspotter: \
-\t- $Certspotter_API_Key \
-Censys: \
-\t- $Censys_API_ID \
-\t- $Censys_API_Secret \
-Chaos: \
-\t- $Chaos_API_Key \
-DnsDB: \
-\t- $DnsDB_API_Key \
-Fofa: \
-\t- $Fofa_API_Key \
-Github: \
-\t- $Github_API_Key \
-Intelx: \
-\t- $Intelx_API_Key \
-Passivetotal: \
-\t- $Passivetotal_API_Key \
-SecurityTrails: \
-\t- $SecurityTrails_API_Key \
-Seebug: \
-\t- $Seebug_API_Key \
-Shodan: \
-\t- $Shodan_API_Key \
-Spyse: \
-\t- $Spyse_API_Key \
-Virustotal: \
-\t- $Virustotal_API_Key \
-Zoomeye: \
-\t- $Zoomeye_API_Key \
+echo 'binaryedge:
+\t- $Binaryedge_API_Key
+c99:
+\t- $C99_API_Key
+Certspotter:
+\t- $Certspotter_API_Key
+Censys:
+\t- $Censys_API_ID
+\t- $Censys_API_Secret
+Chaos:
+\t- $Chaos_API_Key
+DnsDB:
+\t- $DnsDB_API_Key
+Fofa:
+\t- $Fofa_API_Key
+Github:
+\t- $Github_API_Key
+Intelx:
+\t- $Intelx_API_Key
+Passivetotal:
+\t- $Passivetotal_API_Key
+SecurityTrails:
+\t- $SecurityTrails_API_Key
+Seebug:
+\t- $Seebug_API_Key
+Shodan:
+\t- $Shodan_API_Key
+Spyse:
+\t- $Spyse_API_Key
+Virustotal:
+\t- $Virustotal_API_Key
+Zoomeye:
+\t- $Zoomeye_API_Key
 ' > $HOME/.config/subfinder/provider-config.yaml
 
 echo 'api_key $Certspotter_API_Key' > /etc/sslmate.conf
