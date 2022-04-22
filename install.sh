@@ -171,6 +171,18 @@ echo '[$$] Installing PwnCat-CS...'
 cd ~/Documents/Tools
 pip install pwncat-cs
 
+echo '[$$] Installing Chisel...'
+curl https://i.jpillora.com/chisel! | bash
+
+echo '[$$] Installing MongoDB Shell...'
+cd ~/Documents/Tools
+wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.3.1_amd64.deb
+dpkg -i mongodb-mongosh_1.3.1_amd64.deb
+
+
+
+
+
 
 ## Curls
 
@@ -186,9 +198,6 @@ curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 -
 chmod +x pspy32
 curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32s -o pspy32s
 chmod +x pspy32s
-
-echo '[$$] Installing Chisel...'
-curl https://i.jpillora.com/chisel! | bash
 
 echo '[$$] Getting Chisel Toolkit...'
 cd ~/Documents/Tools
