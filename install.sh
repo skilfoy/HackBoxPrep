@@ -172,6 +172,22 @@ cd ~/Documents/Tools
 pip install pwncat-cs
 
 
+## Curls
+
+echo '[$$] Getting PSPY...'
+cd ~/Documents/Tools
+mkdir PSPY
+cd PSPY
+curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 -o pspy64
+chmod +x pspy64
+curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64s -o pspy64s
+chmod +x pspy64s
+curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 -o pspy32
+chmod +x pspy32
+curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32s -o pspy32s
+chmod +x pspy32s
+
+
 
 echo '[$$] Installing ***...'
 cd ~/Documents/Tools
