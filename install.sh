@@ -183,10 +183,6 @@ echo '[$$] Installing Autorecon ***...'
 cd ~/Documents/Tools
 apt install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 apt install python3-venv
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-source ~/.zshrc
-pipx install git+https://github.com/Tib3rius/AutoRecon.git
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
 echo '[$$] Installing $$$ ***...'
