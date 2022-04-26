@@ -185,10 +185,37 @@ apt install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtsc
 apt install python3-venv
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
+echo '[$$] Installing LinWinPwn ***...'
+cd ~/Documents/Tools
+git clone https://github.comlefayjey/linWinPwn
+cd linWinPwn
+chmod +x linWinPwn.sh
+chmod +x install.sh
+./install.sh
+
+echo '[$$] Installing SSRFire ***...'
+cd ~/Documents/Tools
+git clone https://github.com/ksharinarayanan/SSRFire.git
+cd SSRFire
+chmod +x setup.sh
+./setup.sh
+source .profile
+
+echo '[$$] Installing SourceWolf ***...'
+cd ~/Documents/Tools
+git clone https://github.com/ksharinarayanan/SourceWolf
+cd SourceWolf
+pip3 install -r requirements.txt
+alias sourcewolf='python3 ~/Documents/Tools/SourceWolf/sourcewolf.py'
+
+echo '[$$] Installing ROADtools ***...'
+cd ~/Documents/Tools
+pip install roadlib
+pip install roadrecon
+
+
 echo '[$$] Installing $$$ ***...'
 cd ~/Documents/Tools
-
-
 
 
 
@@ -277,7 +304,13 @@ Dynamic compilation
 gcc shocker.c -o shocker
 ' > usage.txt
 
-echo '[$$] Installing ***...'
+echo '[$$] Getting HernanRodriguez\'s Tools...'
+cd ~/Documents/Tools
+git clone https://github.com/HernanRodriguez1/MimikatzFUD
+git clone https://github.com/HernanRodriguez1/RevershellTCP_BypassAMSI
+
+
+echo '[$$] Getting ***...'
 
 
 
