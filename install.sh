@@ -179,6 +179,18 @@ cd ~/Documents/Tools
 wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.3.1_amd64.deb
 dpkg -i mongodb-mongosh_1.3.1_amd64.deb
 
+echo '[$$] Installing Autorecon ***...'
+cd ~/Documents/Tools
+apt install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+apt install python3-venv
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+source ~/.zshrc
+pipx install git+https://github.com/Tib3rius/AutoRecon.git
+python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
+
+echo '[$$] Installing $$$ ***...'
+cd ~/Documents/Tools
 
 
 
@@ -249,9 +261,6 @@ curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7
 gunzip chisel_1.7.7_windows_armv7.gz
 curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_386.gz -o chisel_1.7.7_windows_386.gz
 gunzip chisel_1.7.7_windows_386.gz
-
-
-
 
 echo '[$$] Getting Shocker - Docker Escape ***...'
 cd ~/Documents/Tools
