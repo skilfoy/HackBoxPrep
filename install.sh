@@ -378,4 +378,4 @@ echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
 
 
 
-exit;
+exit
