@@ -317,7 +317,7 @@ echo '[$$] Getting ***...'
 echo '[$$] API Key Installation (for haxunit, subfinder, wpscan functionality)'
 read -sp 'Enter Binaryedge API Key: ' Binaryedge_API_Key
 read -sp 'Enter C99 API Key: ' C99_API_Key
-read -sp 'Enter otter (SSLmate) API Key: ' Certspotter_API_Key
+read -sp 'Enter Certspotter (SSLmate) API Key: ' Certspotter_API_Key
 read -sp 'Enter Censys API ID: ' Censys_API_ID
 read -sp 'Enter Censys API Secret: ' Censys_API_Secret
 read -sp 'Enter Chaos API Key: ' Chaos_API_Key
@@ -378,4 +378,4 @@ echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
 
 
 
-
+exit;
