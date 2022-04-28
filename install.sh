@@ -5,8 +5,10 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-mkdir ~/Documents/Tools
-cd ~/Documents/Tools
+mkdir /home/kali
+mkdir /home/kali/Documents
+mkdir /home/Documents/Tools
+cd /Documents/Tools
 
 # Kali-everything
 echo '## Installing All Kali Tools...'
@@ -20,28 +22,28 @@ echo '## Upgrade & Update...'
 apt-get install -y upgrade
 apt-get install -y update
 apt-get install -y upgrade
-apt-get autoremove
+apt-get autoremove -y
 
 # Toolset
 echo '## Building Toolset...'
 
-mkdir ~/Documents/Tools
+mkdir /home/kali/Documents/Tools
 
 # Manual Installs
 
-echo '[$$] To install Nexpose, enter information, download installer,'
-echo '[$$] run chmod +x on .bin file, then execute .bin with ./'
+echo '[++] To install Nexpose, enter information, download installer,'
+echo '[++] run chmod +x on .bin file, then execute .bin with ./'
 xdg-open https://www.rapid7.com/try/nexpose
 
 # apt installs
 
-echo '[$$] Installing Certspotter...'
+echo '[++] Installing Certspotter...'
 apt install -y certspotter
 
-echo '[$$] Installing Konsole...'
+echo '[++] Installing Konsole...'
 apt-get install -y konsole
 
-echo '[$$] Installing Docker Engine...' 
+echo '[++] Installing Docker Engine...' 
 apt-get install -y \
   ca-certificates \
   curl \
@@ -57,31 +59,31 @@ apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 
 # Git Clones
 
-echo '[$$] Installing Sn1per...'
-cd ~/Documents/Tools
+echo '[++] Installing Sn1per...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/1N3/Sn1per
 cd Sn1per
 bash install.sh
 
-echo '[$$] Installing ReverseAPK...'
-cd ~/Documents/Tools
+echo '[++] Installing ReverseAPK...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/1N3/ReverseAPK.git
 cd ReverseAPK.git
 ./install
 
-echo '[$$] Installing PRISM-AP...'
-cd ~/Documents/Tools
+echo '[++] Installing PRISM-AP...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/1N3/PRISM-AP.git
 cd PRISM-AP
 ./install.sh
 
-echo '[$$] Cloning Powershell Tools...'
-cd ~/Documents/Tools
+echo '[++] Cloning Powershell Tools...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/danielbohannon/Invoke-Obfuscation.git
 git clone https://github.com/puckiestyle/powershell.git
 
-echo '[$$] Installing Sparta...'
-cd ~/Documents/Tools
+echo '[++] Installing Sparta...'
+cd /home/kali/Documents/Tools
 apt install python3-sqlalchemy python3-pyqt5 wkhtmltopdf
 apt-get install ldap-utils rwho rsh-client x11-apps finger
 cd /usr/share
@@ -90,139 +92,139 @@ mv sparta/sparta /usr/bin
 cd /usr/bin
 chmod +x sparta
 
-echo '[$$] Installing HaxUnit...'
-cd ~/Documents/Tools
+echo '[++] Installing HaxUnit...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/Bandit-HaxUnit/haxunit
 cd haxunit
 python3 -m pip install -r requirements.txt
 python3 main.py --install
 
-echo '[$$] Installing SiteBroker...'
-cd ~/Documents/Tools
+echo '[++] Installing SiteBroker...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/Anon-Exploiter/SiteBroker
 cd SiteBroker
 pip install -r requirements.txt
 
-echo '[$$] Installing Docker Compose V2...'
+echo '[++] Installing Docker Compose V2...'
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
 mkdir -p $DOCKER_CONFIG/cli-plugins
 curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 
-echo '[$$] Installing OWTF...'
-cd ~/Documents/Tools
+echo '[++] Installing OWTF...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/owtf/owtf
 cd owtf
 python3 setup.py develop
 xterm -e 'make compose'
 xdg-open http://localhost:8009
 
-echo '[$$] Installing LinEnum...'
-cd ~/Documents/Tools
+echo '[++] Installing LinEnum...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/rebootuser/LinEnum.git
 
-echo '[$$] Installing phpsploit...'
-cd ~/Documents/Tools
+echo '[++] Installing phpsploit...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/nil0x42/phpsploit
 cd phpsploit/
 pip3 install -r requirements.txt
 alias phpsploit='~/Documents/Tools/phpsploit/phpsploit'
 
-echo '[$$] Installing Nettacker...'
-cd ~/Documents/Tools
+echo '[++] Installing Nettacker...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/OWASP/Nettacker.git
 cd Nettacker
 pip3 -install -r requirements
 xterm -e 'python3 nettacker.py --start-api --api-port 5003' &
 xdg-open https://nettacker-api.z3r0d4y.com:5003
 
-echo '[$$] Installing Boon...'
-cd ~/Documents/Tools
+echo '[++] Installing Boon...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/Nefcore/boon.git
 cd boon
 python3 setup.py install
 
-echo '[$$] Installing CRLFsuite...'
-cd ~/Documents/Tools
+echo '[++] Installing CRLFsuite...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/Nefcore/CRLFsuite.git
 cd CRLFsuite
 sudo python3 setup.py install
 
-echo '[$$] Installing RustScan...'
-cd ~/Documents/Tools
+echo '[++] Installing RustScan...'
+cd /home/kali/Documents/Tools
 RS_LOCATION=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/latest \
 | grep "tag_name" \
 | awk '{print "https://github.com/RustScan/RustScan/releases/download/" substr($2, 2, length($2)-3) "_amd64.deb}') \
 ; curl -L -o RustScan.deb $RS_LOCATION
 dpkg -i RustScan.deb
 
-echo '[$$] Installing Katana...'
-cd ~/Documents/Tools
+echo '[++] Installing Katana...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/TebbaaX/Katana.git
 cd Katana
 pip3 install -r requirements.txt
-alias kds='python3 ~/Documents/Tools/Katana/kds.py'
+alias kds='python3 /home/kali/Documents/Tools/Katana/kds.py'
 
-echo '[$$] Installing Ciphey...'
+echo '[++] Installing Ciphey...'
 python3 -m pip install ciphey --upgrade
 
-echo '[$$] Installing PwnCat-CS...'
-cd ~/Documents/Tools
+echo '[++] Installing PwnCat-CS...'
+cd /home/kali/Documents/Tools
 pip install pwncat-cs
 
-echo '[$$] Installing Chisel...'
+echo '[++] Installing Chisel...'
 curl https://i.jpillora.com/chisel! | bash
 
-echo '[$$] Installing MongoDB Shell...'
-cd ~/Documents/Tools
+echo '[++] Installing MongoDB Shell...'
+cd /home/kali/Documents/Tools
 wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.3.1_amd64.deb
 dpkg -i mongodb-mongosh_1.3.1_amd64.deb
 
-echo '[$$] Installing Autorecon ***...'
-cd ~/Documents/Tools
+echo '[++] Installing Autorecon ***...'
+cd /home/kali/Documents/Tools
 apt install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 apt install python3-venv
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
-echo '[$$] Installing LinWinPwn ***...'
-cd ~/Documents/Tools
+echo '[++] Installing LinWinPwn ***...'
+cd /home/kali/Documents/Tools
 git clone https://github.comlefayjey/linWinPwn
 cd linWinPwn
 chmod +x linWinPwn.sh
 chmod +x install.sh
 ./install.sh
 
-echo '[$$] Installing SSRFire ***...'
-cd ~/Documents/Tools
+echo '[++] Installing SSRFire ***...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/ksharinarayanan/SSRFire.git
 cd SSRFire
 chmod +x setup.sh
 ./setup.sh
 source .profile
 
-echo '[$$] Installing SourceWolf ***...'
-cd ~/Documents/Tools
+echo '[++] Installing SourceWolf ***...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/ksharinarayanan/SourceWolf
 cd SourceWolf
 pip3 install -r requirements.txt
-alias sourcewolf='python3 ~/Documents/Tools/SourceWolf/sourcewolf.py'
+alias sourcewolf='python3 /home/kali/Documents/Tools/SourceWolf/sourcewolf.py'
 
-echo '[$$] Installing ROADtools ***...'
-cd ~/Documents/Tools
+echo '[++] Installing ROADtools ***...'
+cd /home/kali/Documents/Tools
 pip install roadlib
 pip install roadrecon
 
 
-echo '[$$] Installing $$$ ***...'
-cd ~/Documents/Tools
+echo '[++] Installing ++$ ***...'
+cd /home/kali/Documents/Tools
 
 
 
 ## Curls
 
-echo '[$$] Getting PSPY...'
-cd ~/Documents/Tools
+echo '[++] Getting PSPY...'
+cd /home/kali/Documents/Tools
 mkdir PSPY
 cd PSPY
 curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 -o pspy64
@@ -234,8 +236,8 @@ chmod +x pspy32
 curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32s -o pspy32s
 chmod +x pspy32s
 
-echo '[$$] Getting Chisel Toolkit...'
-cd ~/Documents/Tools
+echo '[++] Getting Chisel Toolkit...'
+cd /home/kali/Documents/Tools
 mkdir Chisel
 cd Chisel
 curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_darwin_amd64.gz -o chisel_1.7.7_darwin_amd64.gz
@@ -285,8 +287,8 @@ gunzip chisel_1.7.7_windows_armv7.gz
 curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_386.gz -o chisel_1.7.7_windows_386.gz
 gunzip chisel_1.7.7_windows_386.gz
 
-echo '[$$] Getting Shocker - Docker Escape ***...'
-cd ~/Documents/Tools
+echo '[++] Getting Shocker - Docker Escape ***...'
+cd /home/kali/Documents/Tools
 mkdir shocker-docker-escape
 cd shocker-docker-escape
 curl 'stealth.openwall.net/xSports/shocker.c' -o shocker.c
@@ -304,8 +306,8 @@ Dynamic compilation
 gcc shocker.c -o shocker
 ' > usage.txt
 
-echo '[$$] Getting HernanRodriguez\'s Tools...'
-cd ~/Documents/Tools
+echo '[++] Getting HernanRodriguez\'s Tools...'
+cd /home/kali/Documents/Tools
 git clone https://github.com/HernanRodriguez1/MimikatzFUD
 git clone https://github.com/HernanRodriguez1/RevershellTCP_BypassAMSI
 
