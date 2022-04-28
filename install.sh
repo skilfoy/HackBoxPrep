@@ -310,73 +310,74 @@ git clone https://github.com/HernanRodriguez1/MimikatzFUD
 git clone https://github.com/HernanRodriguez1/RevershellTCP_BypassAMSI
 
 
-echo '[$$] Getting ***...'
+echo '[++] Getting ***...'
 
 
-read -sp 'Do you want to install API Keys at this time? (y/n)' choicesx
-if [ "$choicesx" = "n" ]; then
-  exit(0)
-else
-  echo '[$$] API Key Installation (for haxunit, subfinder, wpscan functionality)'
-  read -sp 'Enter Binaryedge API Key: ' Binaryedge_API_Key
-  read -sp 'Enter C99 API Key: ' C99_API_Key
-  read -sp 'Enter Certspotter (SSLmate) API Key: ' Certspotter_API_Key
-  read -sp 'Enter Censys API ID: ' Censys_API_ID
-  read -sp 'Enter Censys API Secret: ' Censys_API_Secret
-  read -sp 'Enter Chaos API Key: ' Chaos_API_Key
-  read -sp 'Enter DnsDB API Key: ' DnsDB_API_Key
-  read -sp 'Enter Fofa API Key: ' Fofa_API_Key
-  read -sp 'Enter Github API Key: ' Github_API_Key
-  read -sp 'Enter Intelx API Key: ' Intelx_API_Key
-  read -sp 'Enter Passivetotal API Key: ' Passivetotal_API_Key
-  read -sp 'Enter SecurityTrails API Key: ' SecurityTrails_API_Key
-  read -sp 'Enter Shodan API Key ' Shodan_API_Key
-  read -sp 'Enter Spyse API Key ' Spyse_API_Key
-  read -sp 'Enter Seebug API Key ' Seebug_API_Key
-  read -sp 'Enter Virustotal API Key: ' Virustotal_API_Key
-  read -sp 'Enter Zoomeye API Key: ' Zoomeye_API_Key
-  read -sp 'Enter WPScan API Key: ' WPScan_API_Key
-  echo 'binaryedge:
-  \t- $Binaryedge_API_Key
-  c99:
-  \t- $C99_API_Key
-  Certspotter:
-  \t- $Certspotter_API_Key
-  Censys:
-  \t- $Censys_API_ID
-  \t- $Censys_API_Secret
-  Chaos:
-  \t- $Chaos_API_Key
-  DnsDB:
-  \t- $DnsDB_API_Key
-  Fofa:
-  \t- $Fofa_API_Key
-  Github:
-  \t- $Github_API_Key
-  Intelx:
-  \t- $Intelx_API_Key
-  Passivetotal:
-  \t- $Passivetotal_API_Key
-  SecurityTrails:
-  \t- $SecurityTrails_API_Key
-  Seebug:
-  \t- $Seebug_API_Key
-  Shodan:
-  \t- $Shodan_API_Key
-  Spyse:
-  \t- $Spyse_API_Key
-  Virustotal:
-  \t- $Virustotal_API_Key
-  Zoomeye:
-  \t- $Zoomeye_API_Key
-  ' > $HOME/.config/subfinder/provider-config.yaml
-
-  echo 'api_key $Certspotter_API_Key' > /etc/sslmate.conf
-
-
-  echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml
-
-fi
+while true; do
+    read -p 'Do you want to install API Keys at this time? (y/n)' yn
+    case $yn in
+        [Yy]* )
+          echo '[++] API Key Installation (for haxunit, subfinder, wpscan functionality)'
+          read -p 'Enter Binaryedge API Key: ' Binaryedge_API_Key
+          read -p 'Enter C99 API Key: ' C99_API_Key
+          read -p 'Enter Certspotter (SSLmate) API Key: ' Certspotter_API_Key
+          read -p 'Enter Censys API ID: ' Censys_API_ID
+          read -p 'Enter Censys API Secret: ' Censys_API_Secret
+          read -p 'Enter Chaos API Key: ' Chaos_API_Key
+          read -p 'Enter DnsDB API Key: ' DnsDB_API_Key
+          read -p 'Enter Fofa API Key: ' Fofa_API_Key
+          read -p 'Enter Github API Key: ' Github_API_Key
+          read -p 'Enter Intelx API Key: ' Intelx_API_Key
+          read -p 'Enter Passivetotal API Key: ' Passivetotal_API_Key
+          read -p 'Enter SecurityTrails API Key: ' SecurityTrails_API_Key
+          read -p 'Enter Shodan API Key ' Shodan_API_Key
+          read -p 'Enter Spyse API Key ' Spyse_API_Key
+          read -p 'Enter Seebug API Key ' Seebug_API_Key
+          read -p 'Enter Virustotal API Key: ' Virustotal_API_Key
+          read -p 'Enter Zoomeye API Key: ' Zoomeye_API_Key
+          read -p 'Enter WPScan API Key: ' WPScan_API_Key
+          echo 'binaryedge:
+          \t- $Binaryedge_API_Key
+          c99:
+          \t- $C99_API_Key
+          Certspotter:
+          \t- $Certspotter_API_Key
+          Censys:
+          \t- $Censys_API_ID
+          \t- $Censys_API_Secret
+          Chaos:
+          \t- $Chaos_API_Key
+          DnsDB:
+          \t- $DnsDB_API_Key
+          Fofa:
+          \t- $Fofa_API_Key
+          Github:
+          \t- $Github_API_Key
+          Intelx:
+          \t- $Intelx_API_Key
+          Passivetotal:
+          \t- $Passivetotal_API_Key
+          SecurityTrails:
+          \t- $SecurityTrails_API_Key
+          Seebug:
+          \t- $Seebug_API_Key
+          Shodan:
+          \t- $Shodan_API_Key
+          Spyse:
+          \t- $Spyse_API_Key
+          Virustotal:
+          \t- $Virustotal_API_Key
+          Zoomeye:
+          \t- $Zoomeye_API_Key
+          ' > $HOME/.config/subfinder/provider-config.yaml
+          
+          echo 'api_key $Certspotter_API_Key' > /etc/sslmate.conf
+          
+          echo 'cli_options:\n\tapi_token: ${WPScan_API_Key}' > ~/.wpscan/scan.yml; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 
 exit
