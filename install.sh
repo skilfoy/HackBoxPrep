@@ -26,6 +26,8 @@ apt autoremove -y
 apt install -y kali-desktop-xfce
 apt install -y tightvncserver
 apt install -y apt-utils
+apt install -y net-tools
+apt install -y novnc
 updatedb
 
 # Toolset
