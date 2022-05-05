@@ -1,28 +1,32 @@
 #!/bin/bash
 
+TOOLS=/usr/share/ARSENAL-Tools
+
+
 if [[ $EUID -ne 0 ]]; then
   echo "This script must be run as root"
   exit 1
 fi
 
-mkdir /home/kali
-mkdir /home/kali/Documents
-mkdir /home//kali/Documents/Tools
-cd /home/kali/Documents/Tools
+mkdir -p $TOOLS
+cd $TOOLS
 
 # Kali-everything
 echo '## Installing All Kali Tools...'
-apt-get install -y kali-linux-everything
+apt install -y kali-linux-everything
 
 echo '## Cleaning up...'
-apt-get autoremove -y
-apt-get install -y libwacom-common
+apt autoremove -y
+apt install -y libwacom-common
 
 echo '## Upgrade & Update...'
-apt-get upgrade -y
-apt-get update -y
-apt-get upgrade -y
-apt-get autoremove -y
+apt upgrade -y
+apt update -y
+apt upgrade -y
+apt autoremove -y
+apt install -y kali-desktop-xfce
+apt install -y tightvncserver
+updatedb
 
 # Toolset
 echo '## Building Toolset...'
@@ -36,13 +40,13 @@ xdg-open https://www.rapid7.com/try/nexpose
 # apt installs
 
 echo '[++] Installing Certspotter...'
-apt-get install -y certspotter
+apt install -y certspotter
 
 echo '[++] Installing Konsole...'
-apt-get install -y konsole
+apt install -y konsole
 
 echo '[++] Installing Docker Engine...' 
-apt-get install -y \
+apt install -y \
   ca-certificates \
   curl \
   gnupg \
@@ -52,8 +56,8 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   buster stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 chmod a+r /usr/share/keyrings/docker-archive-keyring.gpg
-apt-get update -y
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
+apt update -y
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose
 
 # Git Clones
 
@@ -62,6 +66,7 @@ cd /home/kali/Documents/Tools
 git clone https://github.com/1N3/Sn1per
 cd Sn1per
 bash install.sh force
+apt autoremove
 
 echo '[++] Installing ReverseAPK...'
 cd /home/kali/Documents/Tools
@@ -82,8 +87,8 @@ git clone https://github.com/puckiestyle/powershell.git
 
 echo '[++] Installing Sparta...'
 cd /home/kali/Documents/Tools
-apt-get install -y python3-sqlalchemy python3-pyqt5 wkhtmltopdf
-apt-get install -y ldap-utils rwho rsh-client x11-apps finger
+apt install -y python3-sqlalchemy python3-pyqt5 wkhtmltopdf
+apt install -y ldap-utils rwho rsh-client x11-apps finger
 cd /usr/share
 git clone https://github.com/secforce/sparta.git
 mv sparta/sparta /usr/bin
