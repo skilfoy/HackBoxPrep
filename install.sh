@@ -7,8 +7,8 @@ fi
 
 mkdir /home/kali
 mkdir /home/kali/Documents
-mkdir /home/Documents/Tools
-cd /Documents/Tools
+mkdir /home//kali/Documents/Tools
+cd /home/kali/Documents/Tools
 
 # Kali-everything
 echo '## Installing All Kali Tools...'
