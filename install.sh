@@ -12,7 +12,7 @@ cd /home/kali/Documents/Tools
 
 # Kali-everything
 echo '## Installing All Kali Tools...'
-apt-get install -y kali-tools-everything
+apt-get install -y kali-linux-everything
 
 echo '## Cleaning up...'
 apt-get autoremove
@@ -26,8 +26,6 @@ apt-get autoremove -y
 
 # Toolset
 echo '## Building Toolset...'
-
-mkdir /home/kali/Documents/Tools
 
 # Manual Installs
 
