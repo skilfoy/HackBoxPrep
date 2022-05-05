@@ -28,6 +28,7 @@ apt install -y tightvncserver
 apt install -y apt-utils
 apt install -y net-tools
 apt install -y novnc
+# /usr/share/novnc/utils/launch.sh --listen 5901 --vnc localhost:5900
 updatedb
 
 # Toolset
