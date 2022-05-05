@@ -12,17 +12,17 @@ cd /home/kali/Documents/Tools
 
 # Kali-everything
 echo '## Installing All Kali Tools...'
-apt-get -y install kali-linux-everything
+apt-get install -y kali-linux-everything
 
 echo '## Cleaning up...'
-apt-get -y autoremove
-apt-get -y install libwacom-common
+apt-get autoremove -y
+apt-get install -y libwacom-common
 
 echo '## Upgrade & Update...'
-apt-get -y upgrade
-apt-get -y update
-apt-get -y upgrade
-apt-get -y autoremove
+apt-get upgrade -y
+apt-get update -y
+apt-get upgrade -y
+apt-get autoremove -y
 
 # Toolset
 echo '## Building Toolset...'
@@ -36,13 +36,13 @@ xdg-open https://www.rapid7.com/try/nexpose
 # apt installs
 
 echo '[++] Installing Certspotter...'
-apt-get -y install certspotter
+apt-get install -y certspotter
 
 echo '[++] Installing Konsole...'
-apt-get -y install konsole
+apt-get install -y konsole
 
 echo '[++] Installing Docker Engine...' 
-apt-get -y install \
+apt-get install -y \
   ca-certificates \
   curl \
   gnupg \
@@ -52,8 +52,8 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   buster stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 chmod a+r /usr/share/keyrings/docker-archive-keyring.gpg
-apt-get -y update
-apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose
+apt-get update -y
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 
 # Git Clones
 
@@ -82,8 +82,8 @@ git clone https://github.com/puckiestyle/powershell.git
 
 echo '[++] Installing Sparta...'
 cd /home/kali/Documents/Tools
-apt install python3-sqlalchemy python3-pyqt5 wkhtmltopdf
-apt-get install ldap-utils rwho rsh-client x11-apps finger
+apt-get install -y python3-sqlalchemy python3-pyqt5 wkhtmltopdf
+apt-get install -y ldap-utils rwho rsh-client x11-apps finger
 cd /usr/share
 git clone https://github.com/secforce/sparta.git
 mv sparta/sparta /usr/bin
@@ -181,8 +181,8 @@ dpkg -i mongodb-mongosh_1.3.1_amd64.deb
 
 echo '[++] Installing Autorecon ***...'
 cd /home/kali/Documents/Tools
-apt-get -y install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
-apt-get -y install python3-venv
+apt-get install -y seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+apt-get install -y python3-venv
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
 echo '[++] Installing LinWinPwn ***...'
