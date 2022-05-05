@@ -12,17 +12,17 @@ cd /home/kali/Documents/Tools
 
 # Kali-everything
 echo '## Installing All Kali Tools...'
-apt-get install -y kali-linux-everything
+apt-get -y install kali-linux-everything
 
 echo '## Cleaning up...'
-apt-get autoremove
-apt-get install -y libwacom-common
+apt-get -y autoremove
+apt-get -y install libwacom-common
 
 echo '## Upgrade & Update...'
-apt-get install -y upgrade
-apt-get install -y update
-apt-get install -y upgrade
-apt-get autoremove -y
+apt-get -y upgrade
+apt-get -y update
+apt-get -y upgrade
+apt-get -y autoremove
 
 # Toolset
 echo '## Building Toolset...'
@@ -36,13 +36,13 @@ xdg-open https://www.rapid7.com/try/nexpose
 # apt installs
 
 echo '[++] Installing Certspotter...'
-apt install -y certspotter
+apt-get -y install certspotter
 
 echo '[++] Installing Konsole...'
-apt-get install -y konsole
+apt-get -y install konsole
 
 echo '[++] Installing Docker Engine...' 
-apt-get install -y \
+apt-get -y install \
   ca-certificates \
   curl \
   gnupg \
@@ -52,8 +52,8 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   buster stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 chmod a+r /usr/share/keyrings/docker-archive-keyring.gpg
-apt-get update
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
+apt-get -y update
+apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose
 
 # Git Clones
 
@@ -181,8 +181,8 @@ dpkg -i mongodb-mongosh_1.3.1_amd64.deb
 
 echo '[++] Installing Autorecon ***...'
 cd /home/kali/Documents/Tools
-apt install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
-apt install python3-venv
+apt-get -y install seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+apt-get -y install python3-venv
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
 echo '[++] Installing LinWinPwn ***...'
