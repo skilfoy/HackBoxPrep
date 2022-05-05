@@ -47,7 +47,7 @@ apt-get install -y \
   curl \
   gnupg \
   lsb-release
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+curl -k -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   buster stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -106,7 +106,7 @@ pip install -r requirements.txt
 echo '[++] Installing Docker Compose V2...'
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
 mkdir -p $DOCKER_CONFIG/cli-plugins
-curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+curl -k -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 
@@ -151,10 +151,10 @@ sudo python3 setup.py install
 
 echo '[++] Installing RustScan...'
 cd /home/kali/Documents/Tools
-RS_LOCATION=$(curl -s https://api.github.com/repos/RustScan/RustScan/releases/latest \
+RS_LOCATION=$(curl -k -s https://api.github.com/repos/RustScan/RustScan/releases/latest \
 | grep "tag_name" \
 | awk '{print "https://github.com/RustScan/RustScan/releases/download/" substr($2, 2, length($2)-3) "_amd64.deb}') \
-; curl -L -o RustScan.deb $RS_LOCATION
+; curl -k -L -o RustScan.deb $RS_LOCATION
 dpkg -i RustScan.deb
 
 echo '[++] Installing Katana...'
@@ -172,7 +172,7 @@ cd /home/kali/Documents/Tools
 pip install pwncat-cs
 
 echo '[++] Installing Chisel...'
-curl https://i.jpillora.com/chisel! | bash
+curl -k https://i.jpillora.com/chisel! | bash
 
 echo '[++] Installing MongoDB Shell...'
 cd /home/kali/Documents/Tools
@@ -225,71 +225,71 @@ echo '[++] Getting PSPY...'
 cd /home/kali/Documents/Tools
 mkdir PSPY
 cd PSPY
-curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 -o pspy64
+curl -k -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64 -o pspy64
 chmod +x pspy64
-curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64s -o pspy64s
+curl k- -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy64s -o pspy64s
 chmod +x pspy64s
-curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 -o pspy32
+curl -k -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32 -o pspy32
 chmod +x pspy32
-curl -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32s -o pspy32s
+curl -k -L https://github.com/DominicBreuker/pspy/releases/download/v1.2.0/pspy32s -o pspy32s
 chmod +x pspy32s
 
 echo '[++] Getting Chisel Toolkit...'
 cd /home/kali/Documents/Tools
 mkdir Chisel
 cd Chisel
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_darwin_amd64.gz -o chisel_1.7.7_darwin_amd64.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_darwin_amd64.gz -o chisel_1.7.7_darwin_amd64.gz
 gunzip chisel_1.7.7_darwin_amd64.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_darwin_arm64.gz -o chisel_1.7.7_darwin_arm64.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_darwin_arm64.gz -o chisel_1.7.7_darwin_arm64.gz
 gunzip chisel_1.7.7_darwin_amd64.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_386.gz -o chisel_1.7.7_linux_386.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_386.gz -o chisel_1.7.7_linux_386.gz
 gunzip chisel_1.7.7_linux_386.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_amd64.gz -o chisel_1.7.7_linux_amd64.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_amd64.gz -o chisel_1.7.7_linux_amd64.gz
 gunzip chisel_1.7.7_linux_amd64.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_arm64.gz -o chisel_1.7.7_linux_arm64.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_arm64.gz -o chisel_1.7.7_linux_arm64.gz
 gunzip chisel_1.7.7_linux_arm64.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_armv6.gz -o chisel_1.7.7_linux_armv6.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_armv6.gz -o chisel_1.7.7_linux_armv6.gz
 gunzip chisel_1.7.7_linux_armv6.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_armv7.gz -o chisel_1.7.7_linux_armv7.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_armv7.gz -o chisel_1.7.7_linux_armv7.gz
 gunzip chisel_1.7.7_linux_armv7.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64le_softfloat.gz -o chisel_1.7.7_linux_mips64le_softfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64le_softfloat.gz -o chisel_1.7.7_linux_mips64le_softfloat.gz
 gunzip chisel_1.7.7_linux_mips64le_softfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64le_hardfloat.gz -o chisel_1.7.7_linux_mips64le_hardfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64le_hardfloat.gz -o chisel_1.7.7_linux_mips64le_hardfloat.gz
 gunzip chisel_1.7.7_linux_mips64le_hardfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64_hardfloat.gz -o chisel_1.7.7_linux_mips64_hardfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64_hardfloat.gz -o chisel_1.7.7_linux_mips64_hardfloat.gz
 gunzip chisel_1.7.7_linux_mips64_hardfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64_softfloat.gz -o chisel_1.7.7_linux_mips64_softfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips64_softfloat.gz -o chisel_1.7.7_linux_mips64_softfloat.gz
 gunzip chisel_1.7.7_linux_mips64_softfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mipsle_hardfloat.gz -o chisel_1.7.7_linux_mipsle_hardfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mipsle_hardfloat.gz -o chisel_1.7.7_linux_mipsle_hardfloat.gz
 gunzip chisel_1.7.7_linux_mipsle_hardfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mipsle_softfloat.gz -o chisel_1.7.7_linux_mipsle_softfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mipsle_softfloat.gz -o chisel_1.7.7_linux_mipsle_softfloat.gz
 gunzip chisel_1.7.7_linux_mipsle_softfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips_hardfloat.gz -o chisel_1.7.7_linux_mips_hardfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips_hardfloat.gz -o chisel_1.7.7_linux_mips_hardfloat.gz
 gunzip chisel_1.7.7_linux_mips_hardfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips_softfloat.gz -o chisel_1.7.7_linux_mips_softfloat.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_mips_softfloat.gz -o chisel_1.7.7_linux_mips_softfloat.gz
 gunzip chisel_1.7.7_linux_mips_softfloat.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_ppc64.gz -o chisel_1.7.7_linux_ppc64.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_ppc64.gz -o chisel_1.7.7_linux_ppc64.gz
 gunzip chisel_1.7.7_linux_ppc64.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_ppc64le.gz -o chisel_1.7.7_linux_ppc64le.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_ppc64le.gz -o chisel_1.7.7_linux_ppc64le.gz
 gunzip chisel_1.7.7_linux_ppc64le.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_s390x.gz -o chisel_1.7.7_linux_s390x.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_s390x.gz -o chisel_1.7.7_linux_s390x.gz
 gunzip chisel_1.7.7_linux_s390x.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_amd64.gz -o chisel_1.7.7_windows_amd64.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_amd64.gz -o chisel_1.7.7_windows_amd64.gz
 gunzip chisel_1.7.7_windows_amd64.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_arm64.gz -o chisel_1.7.7_windows_arm64.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_arm64.gz -o chisel_1.7.7_windows_arm64.gz
 gunzip chisel_1.7.7_windows_arm64.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_armv6.gz -o chisel_1.7.7_windows_armv6.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_armv6.gz -o chisel_1.7.7_windows_armv6.gz
 gunzip chisel_1.7.7_windows_armv6.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_armv7.gz -o chisel_1.7.7_windows_armv7.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_armv7.gz -o chisel_1.7.7_windows_armv7.gz
 gunzip chisel_1.7.7_windows_armv7.gz
-curl -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_386.gz -o chisel_1.7.7_windows_386.gz
+curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_386.gz -o chisel_1.7.7_windows_386.gz
 gunzip chisel_1.7.7_windows_386.gz
 
 echo '[++] Getting Shocker - Docker Escape ***...'
 cd /home/kali/Documents/Tools
 mkdir shocker-docker-escape
 cd shocker-docker-escape
-curl 'stealth.openwall.net/xSports/shocker.c' -o shocker.c
+curl -k 'stealth.openwall.net/xSports/shocker.c' -o shocker.c
 echo 'shocker: docker PoC VMM-container breakout
 
 first Modify the file, then we compile it in our attack kali machine:
