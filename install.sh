@@ -25,6 +25,7 @@ apt upgrade -y
 apt autoremove -y
 apt install -y kali-desktop-xfce
 apt install -y tightvncserver
+apt install -y apt-utils
 updatedb
 
 # Toolset
