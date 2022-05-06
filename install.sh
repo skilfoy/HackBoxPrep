@@ -25,6 +25,7 @@ apt upgrade -y
 apt autoremove -y
 apt install -y kali-desktop-xfce
 apt install -y tightvncserver
+tightvncserver :0 -geometry 1280x800 -depth 16 -pixelformat rgb565
 apt install -y apt-utils
 apt install -y net-tools
 apt install -y novnc
