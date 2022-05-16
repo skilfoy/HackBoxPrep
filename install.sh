@@ -31,12 +31,16 @@ apt install -y net-tools
 apt install -y novnc
 # /usr/share/novnc/utils/launch.sh --listen 5901 --vnc localhost:5900
 updatedb
+# Install Chrome
 apt update -y
 apt install -y wget
 cd $TOOLS
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt install -y ./google-chrome-stable_current_amd64.deb
 apt update -y
+# Install certutil
+apt install -y libnss3-tools
+
 
 # Toolset
 echo '## Building Toolset...'
