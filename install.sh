@@ -31,6 +31,12 @@ apt install -y net-tools
 apt install -y novnc
 # /usr/share/novnc/utils/launch.sh --listen 5901 --vnc localhost:5900
 updatedb
+apt update -y
+apt install -y wget
+cd $TOOLS
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install -y ./google-chrome-stable_current_amd64.deb
+apt update -y
 
 # Toolset
 echo '## Building Toolset...'
