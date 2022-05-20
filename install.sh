@@ -206,13 +206,25 @@ cd $TOOLS
 wget https://downloads.mongodb.com/compass/mongodb-mongosh_1.3.1_amd64.deb
 dpkg -i mongodb-mongosh_1.3.1_amd64.deb
 
-echo '[++] Installing Autorecon ***...'
+echo '[++] Installing Autorecon...'
 cd $TOOLS
 apt-get install -y seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 apt-get install -y python3-venv
 python3 -m pip install --yes git+https://github.com/Tib3rius/AutoRecon.git
 
-echo '[++] Installing LinWinPwn ***...'
+echo '[++] Installing Impacket + Scripts...'
+cd $TOOLS
+git clone https://github.com/SecureAuthCorp/impacket.git
+cd impacket
+python3 -m pip install --yes .
+
+echo '[++] Installing BirDuster...'
+cd $TOOLS
+git clone https://www.github.com/ytisf/BirDuster
+cd BirDuster
+pip3 install --user --yes -r requirements.txt
+
+echo '[++] Installing LinWinPwn...'
 cd $TOOLS
 git clone https://github.comlefayjey/linWinPwn
 cd linWinPwn
@@ -220,7 +232,7 @@ chmod +x linWinPwn.sh
 chmod +x install.sh
 ./install.sh
 
-echo '[++] Installing SSRFire ***...'
+echo '[++] Installing SSRFire...'
 cd $TOOLS
 git clone https://github.com/ksharinarayanan/SSRFire.git
 cd SSRFire
@@ -228,7 +240,7 @@ chmod +x setup.sh
 ./setup.sh
 source .profile
 
-echo '[++] Installing SourceWolf ***...'
+echo '[++] Installing SourceWolf...'
 cd $TOOLS
 git clone https://github.com/ksharinarayanan/SourceWolf
 cd SourceWolf
@@ -312,7 +324,11 @@ gunzip chisel_1.7.7_windows_armv7.gz
 curl -k -L https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_windows_386.gz -o chisel_1.7.7_windows_386.gz
 gunzip chisel_1.7.7_windows_386.gz
 
-echo '[++] Getting Shocker - Docker Escape ***...'
+echo '[++] Getting static-binaries...'
+cd $TOOLS
+git clone https://github.com/andrew-d/static-binaries.git
+
+echo '[++] Getting Shocker - Docker Escape...'
 cd $TOOLS
 mkdir shocker-docker-escape
 cd shocker-docker-escape
