@@ -25,7 +25,7 @@ apt upgrade -y
 apt autoremove -y
 apt install -y kali-desktop-xfce
 apt install -y tightvncserver
-tightvncserver :0 -geometry 1280x800 -depth 16 -pixelformat rgb565
+xterm -e 'tightvncserver :0 -geometry 1280x800 -depth 16 -pixelformat rgb565' &
 apt install -y apt-utils
 apt install -y net-tools
 apt install -y novnc
@@ -83,7 +83,7 @@ cd $TOOLS
 git clone https://github.com/1N3/Sn1per
 cd Sn1per
 bash install.sh force
-apt autoremove
+apt autoremove -y
 
 echo '[++] Installing ReverseAPK...'
 cd $TOOLS
@@ -116,14 +116,14 @@ echo '[++] Installing HaxUnit...'
 cd $TOOLS
 git clone https://github.com/Bandit-HaxUnit/haxunit
 cd haxunit
-python3 -m pip install -r requirements.txt
-python3 main.py --install
+python3 -m pip install --yes -r requirements.txt
+python3 main.py --install --yes
 
 echo '[++] Installing SiteBroker...'
 cd $TOOLS
 git clone https://github.com/Anon-Exploiter/SiteBroker
 cd SiteBroker
-pip install -r requirements.txt
+pip install --yes -r requirements.txt
 
 echo '[++] Installing Docker Compose V2...'
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
@@ -148,14 +148,14 @@ echo '[++] Installing phpsploit...'
 cd $TOOLS
 git clone https://github.com/nil0x42/phpsploit
 cd phpsploit/
-pip3 install -r requirements.txt
+pip3 install --yes -r requirements.txt
 alias phpsploit='~/Documents/Tools/phpsploit/phpsploit'
 
 echo '[++] Installing Nettacker...'
 cd $TOOLS
 git clone https://github.com/OWASP/Nettacker.git
 cd Nettacker
-pip3 -install -r requirements
+pip3 -install --yes -r requirements
 xterm -e 'python3 nettacker.py --start-api --api-port 5003' &
 xdg-open https://nettacker-api.z3r0d4y.com:5003
 
@@ -183,15 +183,20 @@ echo '[++] Installing Katana...'
 cd $TOOLS
 git clone https://github.com/TebbaaX/Katana.git
 cd Katana
-pip3 install -r requirements.txt
+pip3 install --yes -r requirements.txt
 alias kds='python3 $TOOLS/Katana/kds.py'
 
 echo '[++] Installing Ciphey...'
-python3 -m pip install ciphey --upgrade
+python3 -m pip install --yes ciphey --upgrade
 
 echo '[++] Installing PwnCat-CS...'
 cd $TOOLS
-pip install pwncat-cs
+pip install --yes pwncat-cs
+
+echo '[++] Installing alveare...'
+cd $TOOLS
+apt install -y npm
+npm install -g --silent alveare
 
 echo '[++] Installing Chisel...'
 curl -k https://i.jpillora.com/chisel! | bash
@@ -205,7 +210,7 @@ echo '[++] Installing Autorecon ***...'
 cd $TOOLS
 apt-get install -y seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 apt-get install -y python3-venv
-python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
+python3 -m pip install --yes git+https://github.com/Tib3rius/AutoRecon.git
 
 echo '[++] Installing LinWinPwn ***...'
 cd $TOOLS
@@ -227,13 +232,13 @@ echo '[++] Installing SourceWolf ***...'
 cd $TOOLS
 git clone https://github.com/ksharinarayanan/SourceWolf
 cd SourceWolf
-pip3 install -r requirements.txt
+pip3 install --yes -r requirements.txt
 alias sourcewolf='python3 $TOOLS/SourceWolf/sourcewolf.py'
 
 echo '[++] Installing ROADtools ***...'
 cd $TOOLS
-pip install roadlib
-pip install roadrecon
+pip install --yes roadlib
+pip install --yes roadrecon
 
 
 echo '[++] Installing ++$ ***...'
@@ -326,7 +331,7 @@ Dynamic compilation
 gcc shocker.c -o shocker
 ' > usage.txt
 
-echo '[++] Getting HernanRodriguez\'s Tools...'
+echo "[++] Getting HernanRodriguez's Tools..."
 cd $TOOLS
 git clone https://github.com/HernanRodriguez1/MimikatzFUD
 git clone https://github.com/HernanRodriguez1/RevershellTCP_BypassAMSI
