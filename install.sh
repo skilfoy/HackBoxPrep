@@ -362,6 +362,9 @@ cd $TOOLS
 git clone https://github.com/HernanRodriguez1/MimikatzFUD
 git clone https://github.com/HernanRodriguez1/RevershellTCP_BypassAMSI
 
+echo "[++] Getting PEASS-ng..."
+cd $TOOLS
+git clone https://github.com/carlospolop/PEASS-ng.git
 
 echo '[++] Getting ***...'
 
