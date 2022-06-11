@@ -50,9 +50,19 @@ echo '## Building Toolset...'
 cd ~
 echo '--insecure' > .curlrc
 
+# Install Nexpose
 echo '[++] To install Nexpose, enter information, download installer,'
 echo '[++] run chmod +x on .bin file, then execute .bin with ./'
 xdg-open https://www.rapid7.com/try/nexpose
+
+# Install grepcidr
+cd $TOOLS
+wget http://www.pc-tools.net/files/unix/grepcidr-2.0.tar.gz
+gunzip grepcidr-2.0.tar.gz
+tar -xvf grepcidr-2.0.tar
+cd grepcidr-2.0
+make
+make install
 
 # apt installs
 
@@ -369,6 +379,9 @@ cd $TOOLS
 git clone https://github.com/HernanRodriguez1/MimikatzFUD
 git clone https://github.com/HernanRodriguez1/RevershellTCP_BypassAMSI
 
+echo "[++] Getting PEASS-ng..."
+cd $TOOLS
+git clone https://github.com/carlospolop/PEASS-ng.git
 
 echo '[++] Getting ***...'
 
