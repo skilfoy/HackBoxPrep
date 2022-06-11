@@ -102,6 +102,23 @@ cd $TOOLS
 git clone https://github.com/danielbohannon/Invoke-Obfuscation.git
 git clone https://github.com/puckiestyle/powershell.git
 
+echo '[++] Getting WinPwn...'
+cd $TOOLS
+mkdir WinPwn
+cd WinPwn
+WPVER=$(curl -k -s https://api.github.com/repos/S3cur3Th1sSh1t/WinPwn/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3)}')
+WINPWN_PS_LOCATION=$(echo 'https://api.github.com/repos/S3cur3Th1sSh1t/WinPwn/releases/latest/'$WPVER'/WinPwn.ps1')
+curl -k -L -o WinPwn_release_$WPVER.ps1 $WINPWN_PS_LOCATION
+WINPWN_exe_LOCATION=$(echo 'https://api.github.com/repos/S3cur3Th1sSh1t/WinPwn/releases/latest/'$WPVER'/WinPwn.exe')
+curl -k -L -o WinPwn_release_$WPVER.exe $WINPWN_exe_LOCATION
+git clone https://github.com/S3cur3Th1sSh1t/WinPwn.git
+
+echo '[++] Getting S3cur3Th1sSh1t/Creds...'
+cd $TOOLS
+mkdir 'Creds: Scripts and Executables for Pentest & Forensics'
+cd 'Creds: Scripts and Executables for Pentest & Forensics'
+git clone https://github.com/S3cur3Th1sSh1t/Creds
+
 echo '[++] Installing Sparta...'
 cd $TOOLS
 apt install -y python3-sqlalchemy python3-pyqt5 wkhtmltopdf
