@@ -175,7 +175,7 @@ echo '[++] Installing RustScan...'
 cd $TOOLS
 RS_LOCATION=$(curl -k -s https://api.github.com/repos/RustScan/RustScan/releases/latest \
 | grep "tag_name" \
-| awk '{print "https://github.com/RustScan/RustScan/releases/download/" substr($2, 2, length($2)-3) "_amd64.deb}') \
+| awk '{print "https://github.com/RustScan/RustScan/releases/download/" substr($2, 2, length($2)-3) "_amd64.deb"}') \
 ; curl -k -L -o RustScan.deb $RS_LOCATION
 dpkg -i RustScan.deb
 
