@@ -152,6 +152,11 @@ git clone https://github.com/Anon-Exploiter/SiteBroker
 cd SiteBroker
 pip install --yes -r requirements.txt
 
+echo '[++] Installing Jackdaw...'
+cd $TOOLS
+git clone https://github.com/skelsec/jackdaw
+cd jackdaw
+
 echo '[++] Installing Docker Compose V2...'
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
 mkdir -p $DOCKER_CONFIG/cli-plugins
