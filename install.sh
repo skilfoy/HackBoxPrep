@@ -218,6 +218,14 @@ cd Katana
 pip3 install --yes -r requirements.txt
 alias kds='python3 $TOOLS/Katana/kds.py'
 
+echo '[++] Installing t14m4t...'
+cd $TOOLS
+git clone https://github.com/MS-WEB-BN/t14m4t
+cd t14m4t
+chmod +x install.sh
+bash install.sh
+chmod +x t14m4t
+
 echo '[++] Installing Ciphey...'
 python3 -m pip install --yes ciphey --upgrade
 
