@@ -69,9 +69,6 @@ make install
 echo '[++] Installing Certspotter...'
 apt install -y certspotter
 
-echo '[++] Installing Konsole...'
-apt install -y konsole
-
 echo '[++] Installing Docker Engine...' 
 apt install -y \
   ca-certificates \
