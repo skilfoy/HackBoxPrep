@@ -1,9 +1,11 @@
 #!/bin/bash
 
-TOOLS=/usr/share/ARSENAL-Tools
+TOOLS=/usr/share/Tool-Arsenal
+USER_HOME=$(bash -c "cd ~$(printf %q $USER) && pwd")
+USER_NAME=$(printf %q $USER)
 
 if [[ $EUID -ne 0 ]]; then
-  echo "This script must be run as root"
+  echo "This script must be run with sudo"
   exit 1
 fi
 
@@ -140,19 +142,25 @@ echo '[++] Installing HaxUnit...'
 cd $TOOLS
 git clone https://github.com/Bandit-HaxUnit/haxunit
 cd haxunit
-python3 -m pip install --yes -r requirements.txt
-python3 main.py --install --yes
+echo 'yes' | python3 -m pip install -r requirements.txt
+echo 'yes' | python3 main.py --install
+echo "alias haxunit='python3 $TOOLS/haxunit/main.py'" >> ~/.zshrc
+echo "alias haxunit='python3 $TOOLS/haxunit/main.py'" >> $USER_HOME/.zshrc
+sudo -u $USER_NAME source $USER_HOME/.zshrc
 
 echo '[++] Installing SiteBroker...'
 cd $TOOLS
 git clone https://github.com/Anon-Exploiter/SiteBroker
 cd SiteBroker
-pip install --yes -r requirements.txt
+echo 'yes' | pip install -r requirements.txt
 
 echo '[++] Installing Jackdaw...'
 cd $TOOLS
 git clone https://github.com/skelsec/jackdaw
 cd jackdaw
+python setup.py build
+python3 setup.py install
+jackdaw --sql sqlite:///$(pwd)/test.db dbinit
 
 echo '[++] Installing Docker Compose V2...'
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
@@ -177,14 +185,14 @@ echo '[++] Installing phpsploit...'
 cd $TOOLS
 git clone https://github.com/nil0x42/phpsploit
 cd phpsploit/
-pip3 install --yes -r requirements.txt
+echo 'yes' | pip3 install -r requirements.txt
 alias phpsploit='~/Documents/Tools/phpsploit/phpsploit'
 
 echo '[++] Installing Nettacker...'
 cd $TOOLS
 git clone https://github.com/OWASP/Nettacker.git
 cd Nettacker
-pip3 -install --yes -r requirements
+echo 'yes' | pip3 -install -r requirements
 xterm -e 'python3 nettacker.py --start-api --api-port 5003' &
 xdg-open https://nettacker-api.z3r0d4y.com:5003
 
@@ -212,7 +220,7 @@ echo '[++] Installing Katana...'
 cd $TOOLS
 git clone https://github.com/TebbaaX/Katana.git
 cd Katana
-pip3 install --yes -r requirements.txt
+echo 'yes' | pip3 install -r requirements.txt
 alias kds='python3 $TOOLS/Katana/kds.py'
 
 echo '[++] Installing t14m4t...'
@@ -224,11 +232,11 @@ bash install.sh
 chmod +x t14m4t
 
 echo '[++] Installing Ciphey...'
-python3 -m pip install --yes ciphey --upgrade
+echo 'yes' | python3 -m pip install ciphey --upgrade
 
 echo '[++] Installing PwnCat-CS...'
 cd $TOOLS
-pip install --yes pwncat-cs
+echo 'yes' | pip install pwncat-cs
 
 echo '[++] Installing alveare...'
 cd $TOOLS
@@ -247,19 +255,19 @@ echo '[++] Installing Autorecon...'
 cd $TOOLS
 apt-get install -y seclists curl enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 apt-get install -y python3-venv
-python3 -m pip install --yes git+https://github.com/Tib3rius/AutoRecon.git
+echo 'yes' | python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
 echo '[++] Installing Impacket + Scripts...'
 cd $TOOLS
 git clone https://github.com/SecureAuthCorp/impacket.git
 cd impacket
-python3 -m pip install --yes .
+echo 'yes' | python3 -m pip install .
 
 echo '[++] Installing BirDuster...'
 cd $TOOLS
 git clone https://www.github.com/ytisf/BirDuster
 cd BirDuster
-pip3 install --user --yes -r requirements.txt
+echo 'yes' | pip3 install --user -r requirements.txt
 
 echo '[++] Installing LinWinPwn...'
 cd $TOOLS
@@ -281,13 +289,13 @@ echo '[++] Installing SourceWolf...'
 cd $TOOLS
 git clone https://github.com/ksharinarayanan/SourceWolf
 cd SourceWolf
-pip3 install --yes -r requirements.txt
+echo 'yes' | pip3 install -r requirements.txt
 alias sourcewolf='python3 $TOOLS/SourceWolf/sourcewolf.py'
 
 echo '[++] Installing ROADtools ***...'
 cd $TOOLS
-pip install --yes roadlib
-pip install --yes roadrecon
+echo 'yes' | pip install roadlib
+echo 'yes' | pip install roadrecon
 
 
 echo '[++] Installing ++$ ***...'
